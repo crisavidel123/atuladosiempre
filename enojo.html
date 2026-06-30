@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marisol — Enojada 🌪️</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .sit-hero{background:linear-gradient(160deg,#fff8ee 0%,#fff0ee 100%)}
+    .message-card::before{background:linear-gradient(to bottom,#c9954a,#a07030)}
+    .video-placeholder{background:linear-gradient(135deg,#fff8ee,#ffeedd);border-color:#c9954a}
+    .back-btn{border-color:#c9954a;color:#a07030}.back-btn:hover{background:#fff8ee}
+    .tag-chip{background:#fff0e0;color:#a07030}
+  </style>
+</head>
+<body>
+<div class="bg-organic"></div>
+<main>
+  <div class="sit-hero">
+    <span class="sit-emoji-big">🌪️</span>
+    <h1 class="sit-title">Tu enojo también es válido, Marisol</h1>
+    <p class="sit-subtitle">✦ suéltalo, sin miedo ✦</p>
+  </div>
+  <div class="sit-body">
+    <a href="../index.html" class="back-btn">← Volver al inicio</a>
+    <span class="tag-chip gold">Para soltar lo que pesa</span>
+    <div class="message-card">
+      <span class="quote-mark">"</span>
+      <p class="message-text">
+        Enojarse no te hace mala persona. Te hace humana. Lo que importa es qué haces
+        con esa energía. No tienes que sonreír cuando no quieres. No tienes que fingir calma
+        cuando por dentro hay una tormenta. Suéltalo y luego decide desde la paz.
+        <!-- EDITA este mensaje con tus propias palabras -->
+      </p>
+    </div>
+    <div class="video-placeholder" onclick="showOverlay('video-enojo')">
+      <span class="video-icon">▶️</span>
+      <p class="video-title">El video esta en desarrollo</p>
+      <p class="video-hint">Estos videos estan siendo elaborados de la mejor manera, por favor, ten paciencia</p>
+    </div>
+    <p class="section-label">Formas de soltar la energía</p>
+    <div class="activities-grid">
+      <div class="activity-card" onclick="showOverlay('act-escribe')">
+        <span class="activity-icon">✍️</span>
+        <span class="activity-name">Escríbelo todo</span>
+        <span class="activity-desc">Sin filtros, solo descarga</span>
+      </div>
+      <div class="activity-card" onclick="showOverlay('act-ejercicio')">
+        <span class="activity-icon">🏃</span>
+        <span class="activity-name">Mueve el cuerpo</span>
+        <span class="activity-desc">Transforma la energía</span>
+      </div>
+      <div class="activity-card" onclick="showOverlay('act-gritar')">
+        <span class="activity-icon">🎤</span>
+        <span class="activity-name">Grita una canción</span>
+        <span class="activity-desc">A todo volumen, sin vergüenza</span>
+      </div>
+      <div class="activity-card" onclick="showOverlay('act-5min')">
+        <span class="activity-icon">⏱️</span>
+        <span class="activity-name">Pausa de 5 min</span>
+        <span class="activity-desc">Sal, camina, regresa diferente</span>
+      </div>
+      <div class="activity-card" onclick="showOverlay('act-respira2')">
+        <span class="activity-icon">🫁</span>
+        <span class="activity-name">Respira conmigo</span>
+        <span class="activity-desc">Técnica 4-7-8 para calmar</span>
+      </div>
+      <div class="activity-card" onclick="showOverlay('act-perdon2')">
+        <span class="activity-icon">🕊️</span>
+        <span class="activity-name">Carta de enojo</span>
+        <span class="activity-desc">Soltar el peso de adentro</span>
+      </div>
+    </div>
+    <p class="section-label" style="margin-top:1rem;">Otros momentos</p>
+    <nav class="sit-nav">
+      <a href="alegria.html" class="sit-nav-item">🌟 Feliz</a>
+      <a href="tristeza.html" class="sit-nav-item">🌧️ Triste</a>
+      <a href="logro.html" class="sit-nav-item">🏆 Logré algo</a>
+      <a href="sola.html" class="sit-nav-item">🕯️ Sola</a>
+      <a href="amor.html" class="sit-nav-item">🌹 Enamorada</a>
+      <a href="ansiedad.html" class="sit-nav-item">🌀 Ansiosa</a>
+      <a href="nostalgia.html" class="sit-nav-item">🌙 Nostálgica</a>
+      <a href="motivacion.html" class="sit-nav-item">🔥 Sin energía</a>
+      <a href="miedo.html" class="sit-nav-item">🛡️ Con miedo</a>
+      <a href="gratitud.html" class="sit-nav-item">🙏 Agradecida</a>
+      <a href="cansancio.html" class="sit-nav-item">🌿 Cansada</a>
+      <a href="nuevoinicio.html" class="sit-nav-item">🚀 Nuevo inicio</a>
+      <a href="cumple.html" class="sit-nav-item">🎂 Cumpleaños</a>
+    </nav>
+  </div>
+</main>
+<div id="overlay"><div class="overlay-box">
+  <span class="overlay-emoji" id="ov-emoji"></span>
+  <h3 class="overlay-title" id="ov-title"></h3>
+  <p class="overlay-text" id="ov-text"></p>
+  <button class="overlay-close" onclick="closeOverlay()">Listo ✓</button>
+</div></div>
+<script src="main.js"></script>
+</body>
+</html>

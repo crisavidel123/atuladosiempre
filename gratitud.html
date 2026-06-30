@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marisol — Agradecida 🙏</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .sit-hero{background:linear-gradient(160deg,#f5fff0 0%,#eefff5 100%)}
+    .message-card::before{background:linear-gradient(to bottom,#5fa8a0,#3a7870)}
+    .video-placeholder{background:linear-gradient(135deg,#e8f5f4,#d8f5ee);border-color:#5fa8a0}
+    .back-btn{border-color:#5fa8a0;color:#3a7870}.back-btn:hover{background:#e8f5f4}
+    .tag-chip{background:#e8f5f4;color:#3a7870}
+    .activity-card:hover{border-color:#5fa8a0;box-shadow:0 8px 24px rgba(95,168,160,0.12)}
+  </style>
+</head>
+<body>
+<div class="bg-organic"></div>
+<main>
+  <div class="sit-hero">
+    <span class="sit-emoji-big">🙏</span>
+    <h1 class="sit-title">Qué bonito cuando el corazón da gracias</h1>
+    <p class="sit-subtitle">✦ la gratitud multiplica todo lo bueno ✦</p>
+  </div>
+  <div class="sit-body">
+    <a href="../index.html" class="back-btn">← Volver al inicio</a>
+    <span class="tag-chip teal">Gratitud plena</span>
+    <div class="message-card">
+      <span class="quote-mark">"</span>
+      <p class="message-text">
+        Que puedas sentir gratitud es una de las cosas más hermosas que existen.
+        Significa que estás presente, que notas lo bueno, que tu corazón está abierto.
+        Ese es un regalo que muy poca gente sabe darse. Sigue cultivando eso, Marisol
+        la gratitud es un imán para lo bonito.
+        <!-- EDITA este mensaje con tus propias palabras -->
+      </p>
+    </div>
+    <div class="video-placeholder" onclick="showOverlay('video-gratitud')">
+      <span class="video-icon">🙏</span>
+      <p class="video-title">El video esta en desarrollo</p>
+      <p class="video-hint">Estos videos estan siendo elaborados de la mejor manera, por favor, ten paciencia</p>
+    </div>
+    <p class="section-label">Para expandir esta sensación</p>
+    <div class="activities-grid">
+      <div class="activity-card" onclick="showOverlay('act-diario3')">
+        <span class="activity-icon">📖</span>
+        <span class="activity-name">Diario de gratitud</span>
+        <span class="activity-desc">Escribe 3 cosas por las que das gracias hoy</span>
+      </div>
+      <div class="activity-card" onclick="showOverlay('act-gesto3')">
+        <span class="activity-icon">🌻</span>
+        <span class="activity-name">Gesto de gracias</span>
+        <span class="activity-desc">Díselo a quien lo merece escuchar</span>
+      </div>
+      <div class="activity-card" onclick="showOverlay('act-naturaleza4')">
+        <span class="activity-icon">🌿</span>
+        <span class="activity-name">Sal y agradece</span>
+        <span class="activity-desc">60 segundos notando lo bonito afuera</span>
+      </div>
+      <div class="activity-card" onclick="showOverlay('act-afirmacion3')">
+        <span class="activity-icon">🌞</span>
+        <span class="activity-name">Afirmación de plenitud</span>
+        <span class="activity-desc">Palabras que celebran lo que tienes</span>
+      </div>
+      <div class="activity-card" onclick="showOverlay('act-foto4')">
+        <span class="activity-icon">📸</span>
+        <span class="activity-name">Foto del momento bonito</span>
+        <span class="activity-desc">Captura lo que te hizo sentir bien</span>
+      </div>
+      <div class="activity-card" onclick="showOverlay('act-llamada4')">
+        <span class="activity-icon">📞</span>
+        <span class="activity-name">Llama a alguien especial</span>
+        <span class="activity-desc">Comparte lo que sientes hoy</span>
+      </div>
+    </div>
+    <p class="section-label" style="margin-top:1rem;">Otros momentos</p>
+    <nav class="sit-nav">
+      <a href="alegria.html" class="sit-nav-item">🌟 Feliz</a>
+      <a href="tristeza.html" class="sit-nav-item">🌧️ Triste</a>
+      <a href="logro.html" class="sit-nav-item">🏆 Logré algo</a>
+      <a href="sola.html" class="sit-nav-item">🕯️ Sola</a>
+      <a href="enojo.html" class="sit-nav-item">🌪️ Enojada</a>
+      <a href="amor.html" class="sit-nav-item">🌹 Enamorada</a>
+      <a href="ansiedad.html" class="sit-nav-item">🌀 Ansiosa</a>
+      <a href="nostalgia.html" class="sit-nav-item">🌙 Nostálgica</a>
+      <a href="motivacion.html" class="sit-nav-item">🔥 Sin energía</a>
+      <a href="miedo.html" class="sit-nav-item">🛡️ Con miedo</a>
+      <a href="cansancio.html" class="sit-nav-item">🌿 Cansada</a>
+      <a href="nuevoinicio.html" class="sit-nav-item">🚀 Nuevo inicio</a>
+      <a href="cumple.html" class="sit-nav-item">🎂 Cumpleaños</a>
+    </nav>
+  </div>
+</main>
+<div id="overlay"><div class="overlay-box">
+  <span class="overlay-emoji" id="ov-emoji"></span>
+  <h3 class="overlay-title" id="ov-title"></h3>
+  <p class="overlay-text" id="ov-text"></p>
+  <button class="overlay-close" onclick="closeOverlay()">Listo ✓</button>
+</div></div>
+<script src="main.js"></script>
+</body>
+</html>
