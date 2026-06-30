@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marisol — Nuevo inicio 🚀</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .sit-hero{background:linear-gradient(160deg,#eef0ff 0%,#e8f5ff 100%)}
+    .message-card::before{background:linear-gradient(to bottom,#7a9ab8,#4a70a0)}
+    .video-placeholder{background:linear-gradient(135deg,#eef0ff,#e0eeff);border-color:#7a9ab8}
+    .back-btn{border-color:#7a9ab8;color:#4a70a0}.back-btn:hover{background:#eef0ff}
+    .tag-chip{background:#e8eff8;color:#4a70a0}
+    .activity-card:hover{border-color:#7a9ab8;box-shadow:0 8px 24px rgba(122,154,184,0.12)}
+  </style>
+</head>
+<body>
+<div class="bg-organic"></div>
+<main>
+  <div class="sit-hero">
+    <span class="sit-emoji-big">🚀</span>
+    <h1 class="sit-title">Los comienzos son valientes, Marisol</h1>
+    <p class="sit-subtitle">✦ cada inicio es una oportunidad de ser quien quieres ✦</p>
+  </div>
+  <div class="sit-body">
+    <a href="../index.html" class="back-btn">← Volver al inicio</a>
+    <span class="tag-chip blue">Un nuevo capítulo</span>
+    <div class="message-card">
+      <span class="quote-mark">"</span>
+      <p class="message-text">
+        Empezar algo nuevo requiere más valentía de lo que parece. Estás dejando atrás
+        algo conocido para ir hacia algo incierto y eso es de las cosas más valientes
+        que puede hacer una persona. No importa si tienes miedo. Empieza igual.
+        El camino se hace al caminar, y tú ya estás caminando.
+        <!-- EDITA este mensaje con tus propias palabras -->
+      </p>
+    </div>
+    <div class="video-placeholder" onclick="showOverlay('video-nuevainicio')">
+      <span class="video-icon">🚀</span>
+      <p class="video-title">El video esta en desarrollo</p>
+      <p class="video-hint">Estos videos estan siendo elaborados de la mejor manera, por favor, ten paciencia</p>
+    </div>
+    <p class="section-label">Para arrancar con todo</p>
+    <div class="activities-grid">
+      <div class="activity-card" onclick="showOverlay('act-objetivo4')">
+        <span class="activity-icon">🎯</span>
+        <span class="activity-name">Define tu meta</span>
+        <span class="activity-desc">Escribe exactamente a dónde vas</span>
+      </div>
+      <div class="activity-card" onclick="showOverlay('act-afirmacion4')">
+        <span class="activity-icon">🌞</span>
+        <span class="activity-name">Afirmación de inicio</span>
+        <span class="activity-desc">Las palabras que te preparan</span>
+      </div>
+      <div class="activity-card" onclick="showOverlay('act-selfie4')">
+        <span class="activity-icon">🤳</span>
+        <span class="activity-name">Foto del día uno</span>
+        <span class="activity-desc">Guarda cómo te ves hoy</span>
+      </div>
+      <div class="activity-card" onclick="showOverlay('act-diario4')">
+        <span class="activity-icon">📖</span>
+        <span class="activity-name">Escribe tus intenciones</span>
+        <span class="activity-desc">¿Qué quieres que sea diferente?</span>
+      </div>
+      <div class="activity-card" onclick="showOverlay('act-cancion4')">
+        <span class="activity-icon">🎶</span>
+        <span class="activity-name">Canción de inicio</span>
+        <span class="activity-desc">La que te pone en modo nuevo yo</span>
+      </div>
+      <div class="activity-card" onclick="showOverlay('act-llamada5')">
+        <span class="activity-icon">📞</span>
+        <span class="activity-name">Cuéntale a alguien</span>
+        <span class="activity-desc">Decirlo en voz alta lo hace real</span>
+      </div>
+    </div>
+    <p class="section-label" style="margin-top:1rem;">Otros momentos</p>
+    <nav class="sit-nav">
+      <a href="alegria.html" class="sit-nav-item">🌟 Feliz</a>
+      <a href="tristeza.html" class="sit-nav-item">🌧️ Triste</a>
+      <a href="logro.html" class="sit-nav-item">🏆 Logré algo</a>
+      <a href="sola.html" class="sit-nav-item">🕯️ Sola</a>
+      <a href="enojo.html" class="sit-nav-item">🌪️ Enojada</a>
+      <a href="amor.html" class="sit-nav-item">🌹 Enamorada</a>
+      <a href="ansiedad.html" class="sit-nav-item">🌀 Ansiosa</a>
+      <a href="nostalgia.html" class="sit-nav-item">🌙 Nostálgica</a>
+      <a href="motivacion.html" class="sit-nav-item">🔥 Sin energía</a>
+      <a href="miedo.html" class="sit-nav-item">🛡️ Con miedo</a>
+      <a href="gratitud.html" class="sit-nav-item">🙏 Agradecida</a>
+      <a href="cansancio.html" class="sit-nav-item">🌿 Cansada</a>
+      <a href="cumple.html" class="sit-nav-item">🎂 Cumpleaños</a>
+    </nav>
+  </div>
+</main>
+<div id="overlay"><div class="overlay-box">
+  <span class="overlay-emoji" id="ov-emoji"></span>
+  <h3 class="overlay-title" id="ov-title"></h3>
+  <p class="overlay-text" id="ov-text"></p>
+  <button class="overlay-close" onclick="closeOverlay()">Listo ✓</button>
+</div></div>
+<script src="main.js"></script>
+</body>
+</html>
