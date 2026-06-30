@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marisol — La decepción también duele, y está bien 💔</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .sit-hero{background:linear-gradient(160deg,#fff0f5 0%,#fce8f0 100%)}
+    .message-card::before{background:linear-gradient(to bottom,#c4748f,#c4748f99)}
+    .video-placeholder{background:linear-gradient(135deg,#fff0f5,#fce8f0);border-color:#c4748f}
+    .back-btn{border-color:#c4748f;color:#c4748f}.back-btn:hover{background:#fff0f5}
+    .tag-chip{background:#fff0f5;color:#c4748f}
+    .activity-card:hover{border-color:#c4748f}
+  </style>
+</head>
+<body>
+<div class="bg-organic"></div>
+<main>
+  <div class="sit-hero">
+    <span class="sit-emoji-big">💔</span>
+    <h1 class="sit-title">La decepción también duele, y está bien, Marisol</h1>
+    <p class="sit-subtitle">✦ esto también va a pasar ✦</p>
+  </div>
+  <div class="sit-body">
+    <a href="../index.html" class="back-btn">← Volver al inicio</a>
+    <span class="tag-chip ">Para sanar lo que duele</span>
+    <div class="message-card">
+      <span class="quote-mark">"</span>
+      <p class="message-text">Que algo no saliera como esperabas no dice nada malo de ti dice que esperabas, que confiaste, que pusiste esperanza en algo. Eso toma valentía. Llora si necesitas. Enójate si quieres. Y cuando puedas, levanta la cabeza. Siempre se levanta.<!-- EDITA este mensaje con tus propias palabras --></p>
+    </div>
+    <div class="video-placeholder" onclick="showOverlay('video-decepcionada')">
+      <span class="video-icon">💔</span>
+      <p class="video-title">El video esta en desarrollo</p>
+      <p class="video-hint">Estos videos estan siendo elaborados de la mejor manera, por favor, ten paciencia</p>
+    </div>
+    <p class="section-label">Para este momento</p>
+    <div class="activities-grid">
+      <div class="activity-card" onclick="showOverlay('act-escribe')"><span class="activity-icon">✍️</span><span class="activity-name">Escribe lo que sientes</span><span class="activity-desc">Sin filtros, solo descarga</span></div>
+      <div class="activity-card" onclick="showOverlay('act-respira5')"><span class="activity-icon">🫁</span><span class="activity-name">Respira hondo</span><span class="activity-desc">Deja que el cuerpo lo procese</span></div>
+      <div class="activity-card" onclick="showOverlay('act-carta2')"><span class="activity-icon">💌</span><span class="activity-name">Carta a futuro yo</span><span class="activity-desc">Ya esto también va a pasar</span></div>
+      <div class="activity-card" onclick="showOverlay('act-bano3')"><span class="activity-icon">🛁</span><span class="activity-name">Baño restaurador</span><span class="activity-desc">Limpia también lo de adentro</span></div>
+      <div class="activity-card" onclick="showOverlay('act-llamada9')"><span class="activity-icon">📞</span><span class="activity-name">Llama a alguien</span><span class="activity-desc">No tienes que cargarlo sola</span></div>
+    </div>
+    <p class="section-label" style="margin-top:1rem;">Otros momentos</p>
+    <nav class="sit-nav">
+      <a href="alegria.html" class="sit-nav-item">🌟 Feliz</a>
+      <a href="tristeza.html" class="sit-nav-item">🌧️ Triste</a>
+      <a href="logro.html" class="sit-nav-item">🏆 Logré algo</a>
+      <a href="sola.html" class="sit-nav-item">🕯️ Sola</a>
+      <a href="enojo.html" class="sit-nav-item">🌪️ Enojada</a>
+      <a href="amor.html" class="sit-nav-item">🌹 Enamorada</a>
+      <a href="ansiedad.html" class="sit-nav-item">🌀 Ansiosa</a>
+      <a href="nostalgia.html" class="sit-nav-item">🌙 Nostálgica</a>
+      <a href="motivacion.html" class="sit-nav-item">🔥 Sin energía</a>
+      <a href="miedo.html" class="sit-nav-item">🛡️ Con miedo</a>
+      <a href="gratitud.html" class="sit-nav-item">🙏 Agradecida</a>
+      <a href="cansancio.html" class="sit-nav-item">🌿 Cansada</a>
+      <a href="nuevoinicio.html" class="sit-nav-item">🚀 Nuevo inicio</a>
+      <a href="cumple.html" class="sit-nav-item">🎂 Cumpleaños</a>
+      <a href="orgullosa.html" class="sit-nav-item">💪 Orgullosa</a>
+      <a href="confundida.html" class="sit-nav-item">🌫️ Confundida</a>
+      <a href="esperanza.html" class="sit-nav-item">🌅 Con esperanza</a>
+      <a href="decepcionada.html" class="sit-nav-item">💔 Decepcionada</a>
+      <a href="curiosa.html" class="sit-nav-item">🔍 Curiosa</a>
+      <a href="tranquila.html" class="sit-nav-item">🌊 En paz</a>
+      <a href="creativa.html" class="sit-nav-item">🎨 Creativa</a>
+      <a href="resiliente.html" class="sit-nav-item">🦋 Resiliente</a>
+    </nav>
+  </div>
+</main>
+<div id="overlay"><div class="overlay-box">
+  <span class="overlay-emoji" id="ov-emoji"></span>
+  <h3 class="overlay-title" id="ov-title"></h3>
+  <p class="overlay-text" id="ov-text"></p>
+  <button class="overlay-close" onclick="closeOverlay()">Listo ✓</button>
+</div></div>
+<script src="main.js"></script>
+</body>
+</html>

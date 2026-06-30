@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marisol — Enamorada 🌹</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .sit-hero{background:linear-gradient(160deg,#fff0f5 0%,#ffeef8 100%)}
+    .message-card::before{background:linear-gradient(to bottom,#e8a4b8,#c4748f)}
+    .video-placeholder{background:linear-gradient(135deg,var(--rose-light),#f8e8f5);border-color:var(--rose)}
+
+    /* ─── PANTALLA DE CONFIRMACIÓN ─── */
+    #pantalla-pregunta {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .pregunta-rosa {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+      animation: latido 1.4s ease-in-out infinite;
+      display: block;
+    }
+
+    @keyframes latido {
+      0%, 100% { transform: scale(1); }
+      50%       { transform: scale(1.12); }
+    }
+
+    .pregunta-titulo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 600;
+      color: var(--dark);
+      line-height: 1.2;
+      margin-bottom: 0.7rem;
+    }
+
+    .pregunta-sub {
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 1.8rem;
+    }
+
+    .pregunta-card {
+      background: white;
+      border: 1.5px solid var(--border);
+      border-radius: 28px;
+      padding: 2rem 2.2rem 2.2rem;
+      max-width: 420px;
+      width: 100%;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pregunta-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(to right, var(--rose-light), var(--rose-deep), var(--rose-light));
+    }
+
+    .pregunta-texto {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      line-height: 1.85;
+      color: var(--mid);
+      margin-bottom: 0;
+    }
+
+    .pregunta-botones {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      max-width: 320px;
+      width: 100%;
+    }
+
+    .btn-si {
+      flex: 1;
+      padding: 0.9rem 1.5rem;
+      background: linear-gradient(135deg, var(--rose), var(--rose-deep));
+      border: none;
+      border-radius: 50px;
+      color: white;
+      font-family: 'Jost', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 4px 18px rgba(196,116,143,0.35);
+    }
+
+    .btn-si:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 26px rgba(196,116,143,0.45);
+    }
+
+    .btn-no {
+      flex: 1;
+      padding: 0.9rem 1.5rem;
+      background: white;
+      border: 1.5px solid var(--border);
+      border-radius: 50px;
+      color: var(--muted);
+      font-family: 'Jost', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-no:hover {
+      border-color: var(--rose);
+      color: var(--rose-deep);
+      background: var(--rose-light);
+    }
+
+    /* animación de entrada de la página principal */
+    #pantalla-contenido {
+      display: none;
+      animation: aparece 0.6s ease forwards;
+    }
+
+    @keyframes aparece {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+<div class="bg-organic"></div>
+
+<!-- ══════════════════════════════════════════
+     PANTALLA DE CONFIRMACIÓN
+══════════════════════════════════════════ -->
+<div id="pantalla-pregunta">
+
+  <span class="pregunta-rosa">🌹</span>
+
+  <h1 class="pregunta-titulo">¿De verdad estás<br>enamorada?</h1>
+  <p class="pregunta-sub">✦ piénsalo bien antes de continuar ✦</p>
+
+  <div class="pregunta-card">
+    <p class="pregunta-texto">
+      Te lo vuelvo a preguntar porque para ver esta página
+      tienes que estar segura de que realmente lo estás.
+      El amor es algo grande y este espacio solo es para
+      cuando de verdad lo sientes.
+    </p>
+  </div>
+
+  <div class="pregunta-botones">
+    <button class="btn-si" onclick="mostrarContenido()">
+      Sí, lo estoy 🌹
+    </button>
+    <a href="index.html" class="btn-no">
+      No, volver
+    </a>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════
+     CONTENIDO ORIGINAL (sin modificar)
+══════════════════════════════════════════ -->
+<div id="pantalla-contenido">
+<main>
+  <div class="sit-hero">
+    <span class="sit-emoji-big">🌹</span>
+    <h1 class="sit-title">El amor se siente tan bonito</h1>
+    <p class="sit-subtitle">✦ vívelo con todo, Marisol ✦</p>
+  </div>
+  <div class="sit-body">
+    <a href="../index.html" class="back-btn">← Volver al inicio</a>
+    <span class="tag-chip">Corazón lleno</span>
+    <div class="message-card">
+      <span class="quote-mark">"</span>
+      <p class="message-text">
+        Cuando el corazón está lleno, el mundo se ve diferente. Mereces vivir eso
+        completamente, sin miedo, sin reservas. Quien sea que te haga sentir así,
+        cuídalo bien y cuídate a ti también. El amor bien vivido es de las cosas
+        más bonitas que le pueden pasar a alguien.
+        <!-- EDITA este mensaje con tus propias palabras -->
+      </p>
+    </div>
+    <div class="video-placeholder" onclick="showOverlay('video-amor')">
+      <span class="video-icon">▶️</span>
+      <p class="video-title">El video esta en desarrollo</p>
+      <p class="video-hint">Estos videos estan siendo elaborados de la mejor manera, por favor, ten paciencia</p>
+    </div>
+    <p class="section-label">Para vivir este momento</p>
+    <div class="activities-grid">
+      <div class="activity-card" onclick="showOverlay('act-carta2')">
+        <span class="activity-icon">💌</span>
+        <span class="activity-name">Carta de amor</span>
+        <span class="activity-desc">Escríbele lo que sientes</span>
+      </div>
+      <div class="activity-card" onclick="showOverlay('act-selfie2')">
+        <span class="activity-icon">🤳</span>
+        <span class="activity-name">Selfie enamorada</span>
+        <span class="activity-desc">Así de linda te pone el amor</span>
+      </div>
+      <div class="activity-card" onclick="showOverlay('act-cancion2')">
+        <span class="activity-icon">🎶</span>
+        <span class="activity-name">Tu canción de amor</span>
+        <span class="activity-desc">Ponla y recuerda por qué</span>
+      </div>
+      <div class="activity-card" onclick="showOverlay('act-diario2')">
+        <span class="activity-icon">📖</span>
+        <span class="activity-name">Escribe cómo te sientes</span>
+        <span class="activity-desc">Guarda este momento</span>
+      </div>
+      <div class="activity-card" onclick="showOverlay('act-gesto2')">
+        <span class="activity-icon">🌷</span>
+        <span class="activity-name">Sorpresa pequeña</span>
+        <span class="activity-desc">Un detalle que lo diga todo</span>
+      </div>
+      <div class="activity-card" onclick="showOverlay('act-estrellas2')">
+        <span class="activity-icon">🌌</span>
+        <span class="activity-name">Noche de estrellas</span>
+        <span class="activity-desc">El amor y el universo</span>
+      </div>
+    </div>
+    <p class="section-label" style="margin-top:1rem;">Otros momentos</p>
+    <nav class="sit-nav">
+      <a href="alegria.html" class="sit-nav-item">🌟 Feliz</a>
+      <a href="tristeza.html" class="sit-nav-item">🌧️ Triste</a>
+      <a href="logro.html" class="sit-nav-item">🏆 Logré algo</a>
+      <a href="sola.html" class="sit-nav-item">🕯️ Sola</a>
+      <a href="enojo.html" class="sit-nav-item">🌪️ Enojada</a>
+      <a href="ansiedad.html" class="sit-nav-item">🌀 Ansiosa</a>
+      <a href="nostalgia.html" class="sit-nav-item">🌙 Nostálgica</a>
+      <a href="motivacion.html" class="sit-nav-item">🔥 Sin energía</a>
+      <a href="miedo.html" class="sit-nav-item">🛡️ Con miedo</a>
+      <a href="gratitud.html" class="sit-nav-item">🙏 Agradecida</a>
+      <a href="cansancio.html" class="sit-nav-item">🌿 Cansada</a>
+      <a href="nuevoinicio.html" class="sit-nav-item">🚀 Nuevo inicio</a>
+      <a href="cumple.html" class="sit-nav-item">🎂 Cumpleaños</a>
+    </nav>
+  </div>
+</main>
+</div>
+
+<div id="overlay"><div class="overlay-box">
+  <span class="overlay-emoji" id="ov-emoji"></span>
+  <h3 class="overlay-title" id="ov-title"></h3>
+  <p class="overlay-text" id="ov-text"></p>
+  <button class="overlay-close" onclick="closeOverlay()">Listo ✓</button>
+</div></div>
+
+<script src="main.js"></script>
+<script>
+  function mostrarContenido() {
+    document.getElementById('pantalla-pregunta').style.display = 'none';
+    document.getElementById('pantalla-contenido').style.display = 'block';
+    window.scrollTo(0, 0);
+  }
+</script>
+</body>
+</html>

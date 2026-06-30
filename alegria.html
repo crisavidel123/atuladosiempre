@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marisol — Feliz 🌟</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .sit-hero { background: linear-gradient(160deg, #fff8e8 0%, #fff0f5 100%); }
+    .message-card::before { background: linear-gradient(to bottom, #f0c830, #e8a020); }
+    .video-placeholder { background: linear-gradient(135deg, #fff8e8, #ffefd0); border-color: #e8c060; }
+    .activity-card:hover { border-color: #e8c060; box-shadow: 0 8px 24px rgba(200,160,50,0.12); }
+    .activity-card::before { background: linear-gradient(135deg, #fff8e8, transparent); }
+    .back-btn { border-color: #e8c060; color: #b08030; }
+    .back-btn:hover { background: #fff8e8; border-color: #c09030; }
+    .tag-chip { background: #fff8e0; color: #b08030; }
+  </style>
+</head>
+<body>
+
+<div class="bg-organic"></div>
+
+<main>
+  <div class="sit-hero">
+    <span class="sit-emoji-big">🌟</span>
+    <h1 class="sit-title">¡Qué alegría que estés bien, Marisol!</h1>
+    <p class="sit-subtitle">✦ tu felicidad es lo más bonito ✦</p>
+  </div>
+
+  <div class="sit-body">
+    <a href="../index.html" class="back-btn">← Volver al inicio</a>
+
+    <span class="tag-chip gold">Mensaje para ti</span>
+
+    <!-- ═══ EDITA AQUÍ: Mensaje escrito ═══ -->
+    <div class="message-card">
+      <span class="quote-mark">"</span>
+      <p class="message-text">
+        Que estés sonriendo hoy es de las noticias más bonitas que pueden existir. 
+        Hay algo en ti cuando eres feliz que se parece mucho a la luz, no puedo 
+        explicarlo mejor que eso. Guarda este momento, te lo ganaste. Sigue brillando 
+        exactamente así, Marisol.
+        <!-- EDITA este mensaje con tus propias palabras -->
+      </p>
+    </div>
+
+    <!-- ═══ EDITA AQUÍ: Tu video ═══ -->
+    <!-- OPCIÓN A: Video de YouTube — reemplaza VIDEO_ID con el ID de tu video -->
+    <!--
+    <div style="border-radius:20px;overflow:hidden;margin-bottom:1.5rem;aspect-ratio:16/9;">
+      <iframe width="100%" height="100%"
+        src="Diablos Chantas.mp4"
+        frameborder="0" allowfullscreen style="display:block;"></iframe>
+    </div>
+    -->
+
+    <!-- Placeholder hasta que pongas tu video -->
+    <div style="border-radius:20px;overflow:hidden;margin-bottom:1.5rem;aspect-ratio:16/9;">
+      <iframe width="100%" height="100%"
+        src="video2.mp4"
+        frameborder="0" allowfullscreen style="display:block;"></iframe>
+    </div>
+    <p class="section-label">¿Qué quieres hacer con esta energía?</p>
+
+    <div class="activities-grid">
+      <div class="activity-card" onclick="showOverlay('act-baile')">
+        <span class="activity-icon">💃</span>
+        <span class="activity-name">Reto del baile</span>
+        <span class="activity-desc">Una canción, tú sola, todo el salón</span>
+      </div>
+      <div class="activity-card" onclick="showOverlay('act-diario')">
+        <span class="activity-icon">📖</span>
+        <span class="activity-name">Escribe lo bonito</span>
+        <span class="activity-desc">Captura este momento para siempre</span>
+      </div>
+      <div class="activity-card" onclick="showOverlay('act-gesto')">
+        <span class="activity-icon">🌻</span>
+        <span class="activity-name">Gesto del día</span>
+        <span class="activity-desc">Riega tu alegría en alguien más</span>
+      </div>
+      <div class="activity-card" onclick="showOverlay('act-foto')">
+        <span class="activity-icon">📸</span>
+        <span class="activity-name">Foto del momento</span>
+        <span class="activity-desc">Inmortaliza cómo te ves cuando brillas</span>
+      </div>
+      <div class="activity-card" onclick="showOverlay('act-playlist')">
+        <span class="activity-icon">🎵</span>
+        <span class="activity-name">Playlist de alegría</span>
+        <span class="activity-desc">Las canciones que más te hacen vibrar</span>
+      </div>
+      <div class="activity-card" onclick="showOverlay('act-llamada')">
+        <span class="activity-icon">📞</span>
+        <span class="activity-name">Comparte la alegría</span>
+        <span class="activity-desc">La alegría compartida se duplica</span>
+      </div>
+    </div>
+
+    <!-- Navegación a otras situaciones -->
+    <p class="section-label" style="margin-top:1rem;">Otros momentos</p>
+    <nav class="sit-nav">
+      <a href="tristeza.html" class="sit-nav-item">🌧️ Triste</a>
+      <a href="logro.html" class="sit-nav-item">🏆 Logré algo</a>
+      <a href="sola.html" class="sit-nav-item">🕯️ Sola</a>
+      <a href="enojo.html" class="sit-nav-item">🌪️ Enojada</a>
+      <a href="amor.html" class="sit-nav-item">🌹 Enamorada</a>
+      <a href="ansiedad.html" class="sit-nav-item">🌀 Ansiosa</a>
+      <a href="nostalgia.html" class="sit-nav-item">🌙 Nostálgica</a>
+      <a href="motivacion.html" class="sit-nav-item">🔥 Sin energía</a>
+      <a href="miedo.html" class="sit-nav-item">🛡️ Con miedo</a>
+      <a href="gratitud.html" class="sit-nav-item">🙏 Agradecida</a>
+      <a href="cansancio.html" class="sit-nav-item">🌿 Cansada</a>
+      <a href="nuevoinicio.html" class="sit-nav-item">🚀 Nuevo inicio</a>
+      <a href="cumple.html" class="sit-nav-item">🎂 Cumpleaños</a>
+    </nav>
+  </div>
+</main>
+
+<!-- OVERLAY -->
+<div id="overlay">
+  <div class="overlay-box">
+    <span class="overlay-emoji" id="ov-emoji"></span>
+    <h3 class="overlay-title" id="ov-title"></h3>
+    <p class="overlay-text" id="ov-text"></p>
+    <button class="overlay-close" onclick="closeOverlay()">Listo ✓</button>
+  </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

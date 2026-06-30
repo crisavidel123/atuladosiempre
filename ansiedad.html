@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marisol — Ansiosa 🌀</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .sit-hero{background:linear-gradient(160deg,#f0eeff 0%,#e8e0ff 100%)}
+    .message-card::before{background:linear-gradient(to bottom,#9b7ec8,#7050b0)}
+    .video-placeholder{background:linear-gradient(135deg,#f0eeff,#e8e0ff);border-color:#9b7ec8}
+    .back-btn{border-color:#9b7ec8;color:#7050b0}.back-btn:hover{background:#f0eeff}
+    .tag-chip{background:#f0eaf8;color:#7050b0}
+    .activity-card:hover{border-color:#9b7ec8;box-shadow:0 8px 24px rgba(155,126,200,0.12)}
+  </style>
+</head>
+<body>
+<div class="bg-organic"></div>
+<main>
+  <div class="sit-hero">
+    <span class="sit-emoji-big">🌀</span>
+    <h1 class="sit-title">La mente puede calmarse, Marisol</h1>
+    <p class="sit-subtitle">✦ respira, estás a salvo ✦</p>
+  </div>
+  <div class="sit-body">
+    <a href="../index.html" class="back-btn">← Volver al inicio</a>
+    <span class="tag-chip purple">Para calmar la tormenta</span>
+    <div class="message-card">
+      <span class="quote-mark">"</span>
+      <p class="message-text">
+        La ansiedad miente te dice que todo está mal cuando no es así.
+        Estás a salvo. Estás aquí. Este momento pasará, como todos los anteriores.
+        Respira conmigo lento, profundo. Tú eres más grande que ese miedo.
+        Siempre lo has sido, aunque a veces no lo parezca.
+        <!-- EDITA este mensaje con tus propias palabras -->
+      </p>
+    </div>
+    <div class="video-placeholder" onclick="showOverlay('video-ansiedad')">
+      <span class="video-icon">🫶</span>
+      <p class="video-title">El video esta en desarrollo</p>
+      <p class="video-hint">Estos videos estan siendo elaborados de la mejor manera, por favor, ten paciencia</p>
+    </div>
+    <p class="section-label">Herramientas para calmar la mente</p>
+    <div class="activities-grid">
+      <div class="activity-card" onclick="showOverlay('act-respira3')">
+        <span class="activity-icon">🫁</span>
+        <span class="activity-name">Respiración 4-7-8</span>
+        <span class="activity-desc">La técnica que calma el sistema nervioso</span>
+      </div>
+      <div class="activity-card" onclick="showOverlay('act-afirmacion')">
+        <span class="activity-icon">🌞</span>
+        <span class="activity-name">Afirmación del día</span>
+        <span class="activity-desc">Palabras que te anclan al presente</span>
+      </div>
+      <div class="activity-card" onclick="showOverlay('act-naturaleza')">
+        <span class="activity-icon">🌿</span>
+        <span class="activity-name">Minuto de naturaleza</span>
+        <span class="activity-desc">60 segundos fuera, conectada a la tierra</span>
+      </div>
+      <div class="activity-card" onclick="showOverlay('act-lluvia3')">
+        <span class="activity-icon">🌧️</span>
+        <span class="activity-name">Sonidos de lluvia</span>
+        <span class="activity-desc">El sonido que resetea la mente</span>
+      </div>
+      <div class="activity-card" onclick="showOverlay('act-te')">
+        <span class="activity-icon">☕</span>
+        <span class="activity-name">Té y calma</span>
+        <span class="activity-desc">Algo calientito en las manos ayuda</span>
+      </div>
+      <div class="activity-card" onclick="showOverlay('act-escribe')">
+        <span class="activity-icon">✍️</span>
+        <span class="activity-name">Vacía la mente</span>
+        <span class="activity-desc">Escribe todo lo que está adentro</span>
+      </div>
+    </div>
+    <p class="section-label" style="margin-top:1rem;">Otros momentos</p>
+    <nav class="sit-nav">
+      <a href="alegria.html" class="sit-nav-item">🌟 Feliz</a>
+      <a href="tristeza.html" class="sit-nav-item">🌧️ Triste</a>
+      <a href="logro.html" class="sit-nav-item">🏆 Logré algo</a>
+      <a href="sola.html" class="sit-nav-item">🕯️ Sola</a>
+      <a href="enojo.html" class="sit-nav-item">🌪️ Enojada</a>
+      <a href="amor.html" class="sit-nav-item">🌹 Enamorada</a>
+      <a href="nostalgia.html" class="sit-nav-item">🌙 Nostálgica</a>
+      <a href="motivacion.html" class="sit-nav-item">🔥 Sin energía</a>
+      <a href="miedo.html" class="sit-nav-item">🛡️ Con miedo</a>
+      <a href="gratitud.html" class="sit-nav-item">🙏 Agradecida</a>
+      <a href="cansancio.html" class="sit-nav-item">🌿 Cansada</a>
+      <a href="nuevoinicio.html" class="sit-nav-item">🚀 Nuevo inicio</a>
+      <a href="cumple.html" class="sit-nav-item">🎂 Cumpleaños</a>
+    </nav>
+  </div>
+</main>
+<div id="overlay"><div class="overlay-box">
+  <span class="overlay-emoji" id="ov-emoji"></span>
+  <h3 class="overlay-title" id="ov-title"></h3>
+  <p class="overlay-text" id="ov-text"></p>
+  <button class="overlay-close" onclick="closeOverlay()">Listo ✓</button>
+</div></div>
+<script src="main.js"></script>
+</body>
+</html>

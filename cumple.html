@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marisol — Cumpleaños 🎂</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ─── PANTALLA BLOQUEADA ─── */
+    #pantalla-bloqueada {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .lock-icon {
+      font-size: 5rem;
+      margin-bottom: 1.5rem;
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+
+    .lock-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 0.8rem;
+      line-height: 1.2;
+    }
+
+    .lock-sub {
+      font-size: 0.85rem;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 2rem;
+    }
+
+    .lock-desc {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      line-height: 1.9;
+      color: var(--mid);
+      max-width: 420px;
+      margin-bottom: 2.5rem;
+    }
+
+    .countdown-box {
+      background: white;
+      border: 1.5px solid var(--border);
+      border-radius: 24px;
+      padding: 1.8rem 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .countdown-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .countdown-numbers {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .count-unit {
+      text-align: center;
+    }
+
+    .count-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 600;
+      color: var(--rose-deep);
+      line-height: 1;
+      display: block;
+      min-width: 2.5rem;
+    }
+
+    .count-lbl {
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      display: block;
+      margin-top: 0.3rem;
+    }
+
+    .count-sep {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      color: var(--rose);
+      line-height: 1.1;
+      padding-top: 0.1rem;
+    }
+
+    .lock-date-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.4rem;
+      background: var(--rose-light);
+      border: 1.5px solid var(--rose);
+      border-radius: 50px;
+      color: var(--rose-deep);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── PANTALLA DE CUMPLEAÑOS ─── */
+    #pantalla-cumple {
+      display: none;
+    }
+
+    .sit-hero-cumple {
+      background: linear-gradient(160deg, #fff0f8 0%, #fde8ff 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sit-hero-cumple::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 20% 50%, #ffd6ee44, transparent),
+        radial-gradient(ellipse 50% 60% at 80% 40%, #e8d0ff33, transparent);
+    }
+
+    .confeti-bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .hero-content { position: relative; z-index: 1; }
+
+    .cumple-emoji {
+      font-size: 5rem;
+      display: block;
+      margin-bottom: 1rem;
+      animation: bounceIn 0.7s cubic-bezier(0.175,0.885,0.32,1.275);
+    }
+
+    .cumple-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      font-weight: 600;
+      color: var(--dark);
+      line-height: 1.15;
+      margin-bottom: 0.5rem;
+    }
+
+    .cumple-title span { color: var(--rose-deep); font-style: italic; }
+
+    .cumple-sub {
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 0;
+    }
+
+    .message-card.birthday::before {
+      background: linear-gradient(to bottom, #e8a4b8, #c4748f, #9b5ec8);
+    }
+
+    .activity-card.birthday:hover {
+      border-color: var(--rose-deep);
+      box-shadow: 0 8px 24px rgba(196,116,143,0.18);
+    }
+
+    .activity-card.birthday::before {
+      background: linear-gradient(135deg, #fff0f8, transparent);
+    }
+
+    /* confeti animado */
+    .confeti-piece {
+      position: fixed;
+      top: -10px;
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      animation: caerConfeti linear infinite;
+      pointer-events: none;
+      z-index: 9998;
+    }
+
+    @keyframes caerConfeti {
+      0%   { top: -10px; transform: rotate(0deg) translateX(0); opacity: 1; }
+      100% { top: 110vh; transform: rotate(720deg) translateX(80px); opacity: 0; }
+    }
+
+    .tag-chip.birthday { background: #fff0f8; color: var(--rose-dark); }
+  </style>
+</head>
+<body>
+<div class="bg-organic"></div>
+
+<!-- ══════════════════════════════════════════
+     PANTALLA BLOQUEADA (antes del 3 nov)
+══════════════════════════════════════════ -->
+<div id="pantalla-bloqueada">
+  <span class="lock-icon">🔒</span>
+  <h1 class="lock-title">Esta página tiene<br>una fecha especial</h1>
+  <p class="lock-sub">✦ solo disponible el 3 de noviembre ✦</p>
+  <p class="lock-desc">
+    Hay cosas que se preparan con tiempo y se guardan con cariño.<br>
+    Este rincón estará esperándote el día que cumplas un año más de vida.
+  </p>
+
+  <div class="countdown-box">
+    <p class="countdown-label">Faltan para tu cumpleaños</p>
+    <div class="countdown-numbers">
+      <div class="count-unit">
+        <span class="count-num" id="cd-dias">--</span>
+        <span class="count-lbl">días</span>
+      </div>
+      <span class="count-sep">:</span>
+      <div class="count-unit">
+        <span class="count-num" id="cd-horas">--</span>
+        <span class="count-lbl">horas</span>
+      </div>
+      <span class="count-sep">:</span>
+      <div class="count-unit">
+        <span class="count-num" id="cd-min">--</span>
+        <span class="count-lbl">min</span>
+      </div>
+      <span class="count-sep">:</span>
+      <div class="count-unit">
+        <span class="count-num" id="cd-seg">--</span>
+        <span class="count-lbl">seg</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="lock-date-badge">🎂 3 de noviembre</div>
+
+  <div style="margin-top:2rem;">
+    <a href="../index.html" class="back-btn" style="margin-bottom:0;">← Volver al inicio</a>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PANTALLA DE CUMPLEAÑOS (el 3 nov)
+══════════════════════════════════════════ -->
+<div id="pantalla-cumple">
+
+  <div class="confeti-bg" id="confeti-container"></div>
+
+  <div class="sit-hero sit-hero-cumple">
+    <div class="hero-content" style="padding: 3.5rem 2rem 2.5rem; text-align:center;">
+      <span class="cumple-emoji">🎂</span>
+      <h1 class="cumple-title">¡Feliz cumpleaños,<br><span>Marisol!</span></h1>
+      <p class="cumple-sub">✦ hoy el universo celebra que llegaste ✦</p>
+    </div>
+  </div>
+
+  <div class="sit-body">
+    <a href="../index.html" class="back-btn">← Volver al inicio</a>
+    <span class="tag-chip birthday">🎉 ¡Es tu día!</span>
+
+    <!-- ═══ EDITA AQUÍ: Mensaje de cumpleaños ═══ -->
+    <div class="message-card birthday">
+      <span class="quote-mark">"</span>
+      <p class="message-text">
+        Hoy el mundo es un poco mejor porque tú estás en él. Cada año que pasa,
+        te conviertes más en la persona que siempre debiste ser más tú, más libre,
+        más bonita por dentro y por fuera. Gracias por existir, Marisol.
+        Gracias por dejar que hoy yo también festeje tu vida.
+        <!-- EDITA este mensaje con tus propias palabras para su cumpleaños -->
+      </p>
+    </div>
+
+    <!-- VIDEO: reemplaza con tu iframe de YouTube o tag <video> -->
+    <div class="video-placeholder" onclick="showOverlay('video-cumple')" style="background:linear-gradient(135deg,#fff0f8,#fde8ff);border-color:var(--rose-deep);">
+      <span class="video-icon">🎉</span>
+      <p class="video-title">El video esta en desarrollo</p>
+      <p class="video-hint">Estos videos estan siendo elaborados de la mejor manera, por favor, ten paciencia</p>
+    </div>
+
+    <p class="section-label">Para celebrar como mereces</p>
+
+    <div class="activities-grid">
+      <div class="activity-card birthday" onclick="showOverlay('act-confeti2')">
+        <span class="activity-icon">🎊</span>
+        <span class="activity-name">¡Confeti!</span>
+        <span class="activity-desc">Una lluvia de celebración solo para ti</span>
+      </div>
+      <div class="activity-card birthday" onclick="showOverlay('act-capricho2')">
+        <span class="activity-icon">🍰</span>
+        <span class="activity-name">Tu capricho del año</span>
+        <span class="activity-desc">Hoy no hay excusas para darte un gusto</span>
+      </div>
+      <div class="activity-card birthday" onclick="showOverlay('act-foto5')">
+        <span class="activity-icon">📸</span>
+        <span class="activity-name">Foto de cumpleaños</span>
+        <span class="activity-desc">Guarda cómo te ves hoy, que estás preciosa</span>
+      </div>
+      <div class="activity-card birthday" onclick="showOverlay('act-llamada6')">
+        <span class="activity-icon">📞</span>
+        <span class="activity-name">Recibe el amor</span>
+        <span class="activity-desc">Hoy deja que todos te quieran</span>
+      </div>
+      <div class="activity-card birthday" onclick="showOverlay('act-muro4')">
+        <span class="activity-icon">🌟</span>
+        <span class="activity-name">Reflexión de año</span>
+        <span class="activity-desc">¿Qué lograste? ¿Qué aprendiste?</span>
+      </div>
+      <div class="activity-card birthday" onclick="showOverlay('act-diario5')">
+        <span class="activity-icon">📖</span>
+        <span class="activity-name">Carta al próximo yo</span>
+        <span class="activity-desc">Escríbete para leer el año que viene</span>
+      </div>
+    </div>
+
+    <!-- Mensaje especial extra -->
+    <div class="message-card" style="background: linear-gradient(135deg, #fff0f8, #fde8ff); border-color: var(--rose);">
+      <p class="message-text" style="padding-top:0; text-align:center; font-size:1rem;">
+        🌸 Que este año que empieza hoy esté lleno de todo lo que mereces:<br>
+        amor, paz, risas, logros y mucha, mucha vida. 🌸
+        <!-- EDITA también este mensaje si quieres -->
+      </p>
+    </div>
+
+    <p class="section-label" style="margin-top:1rem;">Otros momentos</p>
+    <nav class="sit-nav">
+      <a href="alegria.html" class="sit-nav-item">🌟 Feliz</a>
+      <a href="tristeza.html" class="sit-nav-item">🌧️ Triste</a>
+      <a href="logro.html" class="sit-nav-item">🏆 Logré algo</a>
+      <a href="sola.html" class="sit-nav-item">🕯️ Sola</a>
+      <a href="enojo.html" class="sit-nav-item">🌪️ Enojada</a>
+      <a href="amor.html" class="sit-nav-item">🌹 Enamorada</a>
+      <a href="ansiedad.html" class="sit-nav-item">🌀 Ansiosa</a>
+      <a href="nostalgia.html" class="sit-nav-item">🌙 Nostálgica</a>
+      <a href="motivacion.html" class="sit-nav-item">🔥 Sin energía</a>
+      <a href="miedo.html" class="sit-nav-item">🛡️ Con miedo</a>
+      <a href="gratitud.html" class="sit-nav-item">🙏 Agradecida</a>
+      <a href="cansancio.html" class="sit-nav-item">🌿 Cansada</a>
+      <a href="nuevoinicio.html" class="sit-nav-item">🚀 Nuevo inicio</a>
+    </nav>
+  </div>
+</div>
+
+<!-- OVERLAY -->
+<div id="overlay">
+  <div class="overlay-box">
+    <span class="overlay-emoji" id="ov-emoji"></span>
+    <h3 class="overlay-title" id="ov-title"></h3>
+    <p class="overlay-text" id="ov-text"></p>
+    <button class="overlay-close" onclick="closeOverlay()">Listo ✓</button>
+  </div>
+</div>
+
+<script src="main.js"></script>
+<script>
+/* ══════════════════════════════════════════════════
+   LÓGICA DE BLOQUEO POR FECHA (hora boliviana UTC-4)
+══════════════════════════════════════════════════ */
+
+const MES_CUMPLE = 11;  // noviembre (1-12)
+const DIA_CUMPLE = 3;   // 3 de noviembre
+
+function getFechaBoliviana() {
+  // Bolivia es UTC-4 (sin horario de verano)
+  const ahora = new Date();
+  const utc = ahora.getTime() + ahora.getTimezoneOffset() * 60000;
+  return new Date(utc - 4 * 3600000); // UTC-4
+}
+
+function esCumpleaños() {
+  const bo = getFechaBitiviana();
+  return bo.getMonth() + 1 === MES_CUMPLE && bo.getDate() === DIA_CUMPLE;
+}
+
+// corregir typo de función
+function getFechaBitiviana() { return getFechaBiviana(); }
+function getFechaBiviana() {
+  const ahora = new Date();
+  const utc = ahora.getTime() + ahora.getTimezoneOffset() * 60000;
+  return new Date(utc - 4 * 3600000);
+}
+
+function esCumpleanyos() {
+  const bo = getFechaBiviana();
+  return bo.getMonth() + 1 === MES_CUMPLE && bo.getDate() === DIA_CUMPLE;
+}
+
+function actualizarCountdown() {
+  const bo = getFechaBiviana();
+  let targetYear = bo.getFullYear();
+
+  // Si ya pasó el cumpleaños este año, contar para el próximo
+  const cumpleEsteAnio = new Date(targetYear, MES_CUMPLE - 1, DIA_CUMPLE, 0, 0, 0);
+  const ahoraLocal = bo;
+
+  if (ahoraLocal >= cumpleEsteAnio && !esCumpleanyos()) {
+    targetYear++;
+  }
+
+  const target = new Date(targetYear, MES_CUMPLE - 1, DIA_CUMPLE, 0, 0, 0);
+  // Convertir target a UTC equivalente
+  const targetUTC = target.getTime() + 4 * 3600000; // sumar UTC-4 offset
+  const diff = targetUTC - Date.now() - bo.getTimezoneOffset() * 60000;
+
+  if (diff <= 0) return; // ya es el día
+
+  const dias  = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const mins  = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const segs  = Math.floor((diff % (1000 * 60)) / 1000);
+
+  document.getElementById('cd-dias').textContent  = String(dias).padStart(2,'0');
+  document.getElementById('cd-horas').textContent = String(horas).padStart(2,'0');
+  document.getElementById('cd-min').textContent   = String(mins).padStart(2,'0');
+  document.getElementById('cd-seg').textContent   = String(segs).padStart(2,'0');
+}
+
+function lanzarConfeti() {
+  const colores = ['#e8a4b8','#c4748f','#f5d5e0','#9b7ec8','#f0c850','#7aaa8a','#fff'];
+  const container = document.getElementById('confeti-container');
+  for (let i = 0; i < 80; i++) {
+    const el = document.createElement('div');
+    el.className = 'confeti-piece';
+    el.style.left       = Math.random() * 100 + 'vw';
+    el.style.background = colores[Math.floor(Math.random() * colores.length)];
+    el.style.width      = (6 + Math.random() * 8) + 'px';
+    el.style.height     = (6 + Math.random() * 8) + 'px';
+    el.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+    el.style.animationDuration  = (4 + Math.random() * 6) + 's';
+    el.style.animationDelay     = (Math.random() * 5) + 's';
+    container.appendChild(el);
+  }
+}
+
+// ── INICIALIZACIÓN ──
+document.addEventListener('DOMContentLoaded', () => {
+  if (esCumpleanyos()) {
+    // Mostrar página de cumpleaños
+    document.getElementById('pantalla-bloqueada').style.display = 'none';
+    document.getElementById('pantalla-cumple').style.display    = 'block';
+    lanzarConfeti();
+  } else {
+    // Mostrar pantalla bloqueada con countdown
+    document.getElementById('pantalla-bloqueada').style.display = 'flex';
+    document.getElementById('pantalla-cumple').style.display    = 'none';
+    actualizarCountdown();
+    setInterval(actualizarCountdown, 1000);
+  }
+});
+</script>
+</body>
+</html>
